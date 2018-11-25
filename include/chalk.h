@@ -123,8 +123,6 @@ constexpr auto BrightWhite = ForegroundColor("97m");
 constexpr auto None = ForegroundColor();
 };  // namespace fg
 
-// namespace colors
-
 struct FormatOp {
   constexpr FormatOp(const char* b, const char* e) : b_(b), e_(e) {}
 
@@ -173,7 +171,6 @@ class OStreamStyler {
 
   template <typename T>
   inline OStreamStyler& operator<<(const T& v) {
-    // std::cout << "j";
     *stream_ << foreground_color.esc_ << foreground_color.rep_;
     *stream_ << background_color.esc_ << background_color.rep_;
 
@@ -204,7 +201,6 @@ constexpr auto RapidBlink = Format{"\033[6m", "\033[25m"};
 constexpr auto Reverse = Format{"\033[7m", "\033[27m"};
 constexpr auto Conceal = Format{"\033[8m", "\033[28m"};
 constexpr auto CrossedOut = Format{"\033[9m", "\033[29m"};
-// constexpr auto None = Format();
 };  // namespace fmt
 
 OStreamStyler ostyler{&std::cout};
